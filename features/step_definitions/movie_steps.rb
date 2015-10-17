@@ -46,29 +46,83 @@ Given /^I am on the RottenPotatoes home page$/ do
 # Add a declarative step here for populating the DB with movies.
 
 Given /the following movies have been added to RottenPotatoes:/ do |movies_table|
-  pending  # Remove this statement when you finish implementing the test step
-  movies_table.hashes.each do |movie|
+    # Remove this statement when you finish implementing the test step
+    movies_table.hashes.each do |movie|
     # Each returned movie will be a hash representing one row of the movies_table
     # The keys will be the table headers and the values will be the row contents.
     # Entries can be directly to the database with ActiveRecord methods
     # Add the necessary Active Record call(s) to populate the database.
-  end
+    Movie.create!(movie)
+    end
 end
 
 When /^I have opted to see movies rated: "(.*?)"$/ do |arg1|
-  # HINT: use String#split to split up the rating_list, then
-  # iterate over the ratings and check/uncheck the ratings
-  # using the appropriate Capybara command(s)
-  pending  #remove this statement after implementing the test step
-end
+    visit movies_path
+    all("ratings").each do |rating|
+      rating = rating.strip
+      uncheck("ratings_#{rating}")
+    end
+    ratings = arg1.split(",")
+    ratings.each do |rating|
+        rating = rating.strip
+        check("ratings_#{rating}")
+    end
+    click_button('Refresh')
 
+end
+   
 Then /^I should see only movies rated: "(.*?)"$/ do |arg1|
-  pending  #remove this statement after implementing the test step
+ temp1 = Array.new
+ temp2 = Array.new
+ output = true
+  ratings = arg1.split(',')
+  ratings.size.times do |n|
+      ratings[n] = ratings[n].strip
+  end
+  all("tr").each do |tr|
+    if !tr.has_content?("Rating")  
+      pagerating = tr.text.split(/[\s]/)
+       ratings.size.times do |n|
+       if(pagerating.include?(ratings[n]))
+         temp1 << ratings[n]
+       else
+         temp2 << ratings[n]
+       end
+    end
+    end
+end  
+  if !((temp2.to_set-temp1.to_set).empty?)
+     output = false
+  end
+  expect(output).to be_truthy
 end
 
 Then /^I should see all of the movies$/ do
-  pending  #remove this statement after implementing the test step
+  rowcount =-1
+  all("tr").each do
+      rowcount = rowcount+1
+  end
+  expect(rowcount).to eq(Movie.all.count)
+  
 end
 
+When /^I follow "(.*?)"$/ do |arg1|
+    visit movies_path
+    if arg1 == "Movie Title"
+      click_on("Movie Title")
+    else
+      click_on("Release Date")
+    end
+end
 
+Then /^I should see "(.*?)" before "(.*?)"$/ do |movie1, movie2|
+    result = false
+    body = page.body.to_s
+    if(body.index(movie1)<body.index(movie2))
+      result = true  
+    else
+      result = false
+    end
+  expect(result).to be_truthy
+end
 
