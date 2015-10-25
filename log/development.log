@@ -1402,3 +1402,435 @@ Completed 200 OK in 46ms (Views: 43.6ms | ActiveRecord: 0.7ms)
   [1m[35m (6.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
   [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
   [1m[35m (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150809022253')
+
+
+Started GET "/" for 173.17.169.216 at 2015-10-25 06:55:53 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 23ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.17.169.216 at 2015-10-25 06:55:58 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (11.7ms)
+Completed 200 OK in 212ms (Views: 204.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 173.17.169.216 at 2015-10-25 06:55:58 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 173.17.169.216 at 2015-10-25 06:55:58 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 173.17.169.216 at 2015-10-25 06:55:58 +0000
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 173.17.169.216 at 2015-10-25 06:55:58 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 173.17.169.216 at 2015-10-25 06:55:58 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 173.17.169.216 at 2015-10-25 06:55:58 +0000
+
+
+Started GET "/movies/new" for 173.17.169.216 at 2015-10-25 06:56:13 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (19.1ms)
+Completed 200 OK in 77ms (Views: 75.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 173.25.168.151 at 2015-10-25 16:04:11 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 21ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:04:15 +0000
+Processing by MoviesController#index as HTML
+  Rendered movies/index.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/ubuntu/workspace/hw5fall15/app/views/movies/index.html.haml:29: syntax error, unexpected ':', expecting ')'
+...false_true_false(( text_field : movie, 'search'
+...                               ^
+/home/ubuntu/workspace/hw5fall15/app/views/movies/index.html.haml:29: syntax error, unexpected '\n', expecting :: or '[' or '.'
+/home/ubuntu/workspace/hw5fall15/app/views/movies/index.html.haml:31: syntax error, unexpected '}', expecting tSTRING_DEND
+));}\n", 0, false);end;_hamlout.b...
+    ^
+/home/ubuntu/workspace/hw5fall15/app/views/movies/index.html.haml:31: syntax error, unexpected $undefined, expecting tSTRING_DEND
+...aml_temp);_hamlout.push_text("\n#{
+...                               ^
+/home/ubuntu/workspace/hw5fall15/app/views/movies/index.html.haml:33: syntax error, unexpected '}', expecting tSTRING_DEND
+));}\n", 0, false);::Haml::Util.h...
+    ^
+/home/ubuntu/workspace/hw5fall15/app/views/movies/index.html.haml:33: unterminated string meets end of file
+/home/ubuntu/workspace/hw5fall15/app/views/movies/index.html.haml:33: syntax error, unexpected end-of-input, expecting tSTRING_DEND):
+  app/views/movies/index.html.haml:29: syntax error, unexpected ':', expecting ')'
+  app/views/movies/index.html.haml:29: syntax error, unexpected '\n', expecting :: or '[' or '.'
+  app/views/movies/index.html.haml:31: syntax error, unexpected '}', expecting tSTRING_DEND
+  app/views/movies/index.html.haml:31: syntax error, unexpected $undefined, expecting tSTRING_DEND
+  app/views/movies/index.html.haml:33: syntax error, unexpected '}', expecting tSTRING_DEND
+  app/views/movies/index.html.haml:33: unterminated string meets end of file
+  app/views/movies/index.html.haml:33: syntax error, unexpected end-of-input, expecting tSTRING_DEND
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (36.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:06:00 +0000
+Processing by MoviesController#index as HTML
+  Rendered movies/index.html.haml within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Inconsistent indentation: 3 spaces used for indentation, but the rest of the document was indented using 2 spaces.):
+    25:         %td= movie.release_date
+    26:         %td= link_to "More about #{movie.title}", movie_path(movie)
+    27: =form_tag movies_search_tmdb_path, :method => :post do
+    28:    = label :movie, "search for movie titles containing:"
+    29:    = text_field :movie, 'search'
+    30:   = submit_tag 'search TMDB'
+    31: 
+  app/views/movies/index.html.haml:28
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.6ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:06:32 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (23.9ms)
+Completed 200 OK in 261ms (Views: 258.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:06:45 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h/HNXUEHSgcAlWsI2jU1jvn1+pySijFo9Ox33ljGOpjiZPUHOan+Fme2/n3uSE6zhi1jAKb9NPyGMMcxe9qgiw==", "movie"=>{"search"=>"inception"}, "commit"=>"search TMDB"}
+Completed 500 Internal Server Error in 857ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `collect' for nil:NilClass):
+  app/models/movie.rb:9:in `find_in_tmdb'
+  app/controllers/movies_controller.rb:65:in `search_tmdb'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.6ms)
+
+
+Started GET "/" for 173.25.168.151 at 2015-10-25 16:24:32 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 17ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:24:35 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (33.1ms)
+Completed 200 OK in 282ms (Views: 268.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:24:37 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NcEkRKuAjJJ16EKA7hT0TluWM1azh+7g2QPfk9hu20FQVBwe0y44gxLL1/XaaY9zJE6qyofw63Sr3298+3JBUg==", "movie"=>{"search"=>""}, "commit"=>"search TMDB"}
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `collect' for nil:NilClass):
+  app/models/movie.rb:9:in `find_in_tmdb'
+  app/controllers/movies_controller.rb:65:in `search_tmdb'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.4ms)
+
+
+Started GET "/" for 173.25.168.151 at 2015-10-25 16:24:54 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:24:57 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 56ms (Views: 53.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:25:02 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v3CY6C4+kJMDS7yWcJ3Da8AxxlwecUpu6Fkl1iSGU67a5aCyVpAkgmRoKeNE4LhWv+lfwCoGT/qahZU5B5rJvQ==", "movie"=>{"search"=>"bjhsbdjsa"}, "commit"=>"search TMDB"}
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `collect' for nil:NilClass):
+  app/models/movie.rb:9:in `find_in_tmdb'
+  app/controllers/movies_controller.rb:65:in `search_tmdb'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.6ms)
+
+
+Started GET "/" for 173.25.168.151 at 2015-10-25 16:28:03 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 20ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:28:07 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (27.2ms)
+Completed 200 OK in 234ms (Views: 223.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:28:09 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jAUiUkVt5DNs9QA27YfaugqA8bL0O/lzp+E7u1Bk+STpkBoIPcNQIgvWlUPZ+qGHdVhoLsBM/OfVPYtUc3hjNw==", "movie"=>{"search"=>""}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `collect' for nil:NilClass):
+  app/models/movie.rb:9:in `find_in_tmdb'
+  app/controllers/movies_controller.rb:70:in `search_tmdb'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:29:45 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (18.5ms)
+Completed 200 OK in 62ms (Views: 56.6ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:29:47 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tSZfdmmSjzs4RRKoh/LqctCIudNzK/xdMbgyWTZ8T+vQs2csETw7Kl9mh92zj5FPr1AgT0dc+clDZIK2FWDV+A==", "movie"=>{"search"=>""}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:29:47 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (15.6ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:29:49 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wr9XbUuiGuOXMboAJgN420MJJeG+K6DRx3g3i6mrwws/Km83Mwyu8vASL3USfgPmPNG8fYpcpUW1pIdkirdZGA==", "movie"=>{"search"=>""}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:29:49 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:31:26 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (14.6ms)
+Completed 200 OK in 65ms (Views: 60.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:31:28 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7cIDYIm3E6zKdJAomuxrdd8/AYSIx/T3sj35eydbcOKIVzs68Rmnva1XBV2ukRBIoOeYGLyw8WPA4UmUBEfq8Q==", "movie"=>{"search"=>""}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:31:28 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:31:52 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (15.8ms)
+Completed 200 OK in 50ms (Views: 44.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:31:58 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q/A8Od3uUKNuJlUN7aTwkGfveO84/6tqQ1Gl5XHyoxbOZQRjpUDksgkFwHjZ2YutGDfhcwyIrv4xjRUKUu45BQ==", "movie"=>{"search"=>""}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:31:58 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.7ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (10.1ms)
+Completed 200 OK in 56ms (Views: 54.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:35:10 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:35:19 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QQK1MHUOc88doKu9xSxP7HmoV7ixaZHKqP7VA1c0Gu4kl41qDaDH3nqDPsjxUTTRBnDOJIUelF7aImXsdCiA/Q==", "movie"=>{"search"=>""}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:35:19 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:35:25 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MQUzVgTKFJDjlMLD4BupEc9BesVIDoGXsAEmdH5Bx6pUkAsMfGSggYS3V7bUZtIssJnjWXx5hAPC3ZabXV1duQ==", "movie"=>{"search"=>"inception"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:35:25 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:35:32 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hFiWeKWBLiXDJtqZ1S4Qhk7SsS9zyqH+6Ia8h9qjLgnhza4i3S+aNKQFT+zhU2u7MQoos0e9pGqaWgxo+b+0Gg==", "movie"=>{"search"=>"inception"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:35:33 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:37:03 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tNHvZtuTQN29/oYAUt5WsEwkChVrW57PhAkBlrrebhrRRNc8oz30zNrdE3Vmoy2NM/yTiV8sm1v21bF5mcL0CQ==", "movie"=>{"search"=>"inception"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:37:03 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:39:19 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HMNW/nAPBCMTCYxAZ/30YKFCqg/06ry/ourQ9MiI+cR5Vm6kCKGwMnQqGTVTgI9d3pozk8CduSvQNmAb65Rj1w==", "movie"=>{"search"=>"kannada"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:39:20 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:39:25 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FbtBcVEJQR06IzllgVUj6hMsWhbs2XyP3WCK1FqvNRRwLnkrKaf1DF0ArBC1KFjXbPTDitiueRuvvDo7ebOvBw==", "movie"=>{"search"=>"bjhsbdjsa"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:39:25 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 46ms (Views: 44.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:45:15 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (9.8ms)
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:45:21 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LMKTIqvWPPrhazft2Y4qJzONZ8paZ8yhXLqU8w+tEs5JV6t403iI64ZIopjt81EaTFX+Vm4QyTUuZiQcLLGI3Q==", "movie"=>{"search"=>"inception"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:45:21 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:45:31 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lzqNg9jlp6rWLj9kbLeaRtVaZ6XqH1TgxkV7Da2sfvjyr7XZoEsTu7ENqhFYyuF7qoL+Od5oUXS0mcvijrDk6w==", "movie"=>{"search"=>"inception"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:45:31 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-25 16:46:25 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eOyOSHypA9F66DN7kfg0NQKtwvqZ36NIvigcZjF5UP4debYSBAe3wB3Lpg6lhU8IfXVbZq2optzM9KyJEmXK7Q==", "movie"=>{"search"=>"kannada"}, "commit"=>"search TMDB"}
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-25 16:46:25 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.3ms)
