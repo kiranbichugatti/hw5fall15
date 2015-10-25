@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
   
   def search_params
-    params.require(:movie).permit(:search)
+    params.require(:search_terms).permit(:search)
   end
 
   def show
@@ -66,7 +66,8 @@ class MoviesController < ApplicationController
   end
   
   def search_tmdb
-  search_name = params[:search]
+  search_name = search_params[:search]
+  puts "Hi #{search_name}"
    value = Movie.find_in_tmdb(search_name)
    if value==0
     flash[:notice] = "Invalid search term!!"

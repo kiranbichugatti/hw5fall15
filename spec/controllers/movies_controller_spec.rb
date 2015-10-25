@@ -8,12 +8,12 @@ describe MoviesController do
         end
      it 'should call the model method that performs TMDb search' do
         Movie.should_receive(:find_in_tmdb).with('295831').and_return(@fake_results)
-        post :search_tmdb, {:search => '295831'}
+        post :search_tmdb,{:search_terms =>{:search =>'295831'}}
      end
      describe 'after valid search' do
          before :each do
              allow(Movie).to receive(:find_in_tmdb).and_return(@fake_results)
-             post :search_tmdb, {:search => '295831'}
+             post :search_tmdb, {:search_terms => {:search => '295831'}}
          end
       it 'should select the search results template for rendering' do
            expect(response).to render_template(:search_tmdb)
