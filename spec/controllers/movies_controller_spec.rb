@@ -8,18 +8,18 @@ describe MoviesController do
         end
      it 'should call the model method that performs TMDb search' do
         Movie.should_receive(:find_in_tmdb).with('295831').and_return(@fake_results)
-        post :search_tmdb, {:search_terms => '295831'}
+        post :search_tmdb, {:search => '295831'}
      end
      describe 'after valid search' do
          before :each do
-             Movie.stub(:find_in_tmdb).and_return(@fake_results)
-             post :search_tmdb, {:search_terms => '295831'}
+             allow(Movie).to receive(:find_in_tmdb).and_return(@fake_results)
+             post :search_tmdb, {:search => '295831'}
          end
       it 'should select the search results template for rendering' do
            expect(response).to render_template(:search_tmdb)
          end
       it 'should make the TMDb search results avaialble to that template' do
-          expect(assigns(:movie)).to eq @fake_results
+          expect(assigns(:movies)).to eq @fake_results
         end
       end
     end 

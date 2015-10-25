@@ -3,6 +3,10 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date)
   end
+  
+  def search_params
+    params.require(:movie).permit(:search)
+  end
 
   def show
     id = params[:id] # retrieve movie ID from URI route
@@ -62,21 +66,20 @@ class MoviesController < ApplicationController
   end
   
   def search_tmdb
-    search_name = params[:search_terms]
-    if search_name==nil or search_name ==""
-      flash[:notice] = "Invalid search"
-      redirect_to movies_path
-    elsif search_name!=nil or search_name!="" 
-      @movie = Movie.find_in_tmdb(search_name)
-      if @movie.empty?
-        flash[:notice] = "No matching movies were found on TMDb"
-        redirect_to movies_path
-      end
-      else 
-        @movie
-    end
-  
+  search_name = params[:search]
+   value = Movie.find_in_tmdb(search_name)
+   if value==0
+    flash[:notice] = "Invalid search term!!"
+    redirect_to movies_path
+	 elsif value==1
+	   flash[:notice] = "No matching movies were found in TMDB!!"
+     redirect_to movies_path
+   else
+     @movies=value
+   end
   end
+  
+
   
   def add_tmdb
     arr = params[:tmdb_movies]
