@@ -4080,3 +4080,55 @@ Processing by MoviesController#index as HTML
   [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')
   Rendered movies/index.html.haml within layouts/application (8.3ms)
 Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 173.25.168.151 at 2015-10-26 04:04:26 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 20ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-26 04:04:29 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 173.25.168.151 at 2015-10-26 04:04:29 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (22.3ms)
+Completed 200 OK in 171ms (Views: 163.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/movies/search_tmdb" for 173.25.168.151 at 2015-10-26 04:04:43 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w26+XoXZVWqyu15Fg+EuUBOjCi4118mpbIWq8/IRBi2m+4YE/Xfhe9WYyzC3nFVtbHuTsgGgzD0eWRoc0Q2cPg==", "search_terms"=>{"search"=>"lost"}, "commit"=>"search TMDB"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 127ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies/add_tmdb" for 173.25.168.151 at 2015-10-26 04:04:49 +0000
+Processing by MoviesController#add_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZDJPCLHAt6fQq9Xq+3wyfoJlvohnbsodeJWDEx+X4EgBp3dSyW4DtreIQJ/PAUlD/b0nFFMZz4kKSTP8PIt6Ww==", "tmdb_movies"=>{"106138"=>"1"}, "commit"=>"Add selected movies"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Lost Paradise"], ["rating", "R"], ["release_date", "1990-01-01 00:00:00.000000"], ["created_at", "2015-10-26 04:04:49.623805"], ["updated_at", "2015-10-26 04:04:49.623805"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies
+Completed 302 Found in 128ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/movies" for 173.25.168.151 at 2015-10-26 04:04:49 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://csuiowa-kiranbichugatti.c9.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 173.25.168.151 at 2015-10-26 04:04:49 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (8.3ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.3ms)

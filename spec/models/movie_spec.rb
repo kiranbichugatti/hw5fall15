@@ -16,6 +16,22 @@ describe Movie, :type => :model do
        expect(movie).not_to eq(nil)
      end
     end
+    describe 'searchng Tmdb by keyword' do
+        context 'with valid key' do
+            it 'should call Tmdb with title keywords' do
+                expect(Tmdb::Movie).to receive(:find).with('inception')
+                Movie.find_in_tmdb('inception')
+            end
+        end
+        
+        context 'with invalid key' do
+            it 'should raise invalidKeyError if key is missing or invalid' do
+                allow(Tmdb::Movie).to receive(:find).and_raise(NoMethodError)
+                allow(Tmdb::Api).to receive(:response).and_return({'code'=>'401'})
+                expect{Movie.find_in_tmdb('Inception')}.to raise_error(Movie::InvalidKeyError)
+            end
+        end
+    end
        
   
 end

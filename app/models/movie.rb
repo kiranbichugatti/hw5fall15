@@ -2,16 +2,24 @@ class Movie < ActiveRecord::Base
   def self.all_ratings
     %w(G PG PG-13 NC-17 R)
   end
-  
+  class Movie::InvalidKeyError<StandardError;end
   def Movie::find_in_tmdb(name = String.new)
     temp = Array.new
     output = Array.new
     if(name==nil or name=="")
       return 0
     else
-     Tmdb::Api.key("f4702b08c0ac6ea5b51425788bb26562")
-     temp = Tmdb::Movie.find(name)
-     if temp==nil or temp ==[]
+     begin  
+      Tmdb::Api.key("f4702b08c0ac6ea5b51425788bb26562")
+      temp = Tmdb::Movie.find(name)
+      rescue NoMethodError=>tmdb_gem_exception
+      if Tmdb::Api.response['code']=='401'
+         raise Movie::InvalidKeyError,'Invalid API key'
+      else
+        raise tmdb_gem_exception
+      end
+     end
+      if temp==nil or temp ==[]
        return 1
      else
        temp.each do |movie|
@@ -19,7 +27,7 @@ class Movie < ActiveRecord::Base
        
      end
      return output
-     end
+      end
      
     end
   end
