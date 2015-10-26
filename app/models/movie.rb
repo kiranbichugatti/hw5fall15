@@ -2,6 +2,7 @@ class Movie < ActiveRecord::Base
   def self.all_ratings
     %w(G PG PG-13 NC-17 R)
   end
+  
   def Movie::find_in_tmdb(name = String.new)
     temp = Array.new
     output = Array.new
